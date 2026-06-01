@@ -1,0 +1,272 @@
+html,
+body,
+.container-fluid,
+.bslib-page-fill {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #f8fafc;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.map-canvas,
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #eef2f4;
+}
+
+.leaflet-control-zoom {
+  border: 0 !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18) !important;
+}
+
+.leaflet-control-zoom a {
+  width: 42px !important;
+  height: 42px !important;
+  line-height: 42px !important;
+  border: 0 !important;
+  color: #111827 !important;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px;
+}
+
+.leaflet-control .legend {
+  border: 0;
+  border-radius: 8px;
+  z-index: 700;
+}
+
+.info.legend {
+  margin-bottom: 7vh !important;
+  padding: 8px 10px;
+  color: #111827;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.14);
+  border-radius: 8px;
+  line-height: 1.25;
+  z-index: 700;
+}
+
+.layer-status {
+  position: absolute;
+  top: calc(env(safe-area-inset-top) + 14px);
+  left: 14px;
+  right: 68px;
+  z-index: 800;
+  display: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #111827;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.16);
+  font-size: 13px;
+}
+
+.layer-status:not(:empty) {
+  display: block;
+}
+
+.bottom-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  max-height: 48vh;
+  border-radius: 18px 18px 0 0;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 -18px 40px rgba(15, 23, 42, 0.18);
+  transform: translateY(0);
+  transition: transform 220ms ease;
+  backdrop-filter: blur(16px);
+}
+
+.bottom-sheet.collapsed {
+  transform: translateY(calc(100% - 48px - env(safe-area-inset-bottom)));
+}
+
+.sheet-handle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 18px 18px 0 0;
+  background: transparent;
+  touch-action: manipulation;
+}
+
+.handle-bar {
+  width: 46px;
+  height: 5px;
+  border-radius: 999px;
+  background: #94a3b8;
+}
+
+.handle-arrow::before {
+  display: block;
+  width: 9px;
+  height: 9px;
+  content: "";
+  border-top: 2px solid #334155;
+  border-left: 2px solid #334155;
+  transform: rotate(45deg);
+}
+
+.bottom-sheet:not(.collapsed) .handle-arrow::before {
+  transform: rotate(225deg);
+}
+
+.sheet-content {
+  height: calc(48vh - 48px);
+  padding: 0 16px calc(18px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sheet-title-row {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0 10px;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.sheet-title {
+  font-size: 18px;
+  font-weight: 750;
+  color: #0f172a;
+}
+
+.sheet-close {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  color: #0f172a;
+  background: #e5e7eb;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.control-group {
+  padding: 12px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.control-group summary,
+.group-label {
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 750;
+}
+
+.control-grid {
+  display: grid;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.form-label,
+.control-label {
+  margin-bottom: 6px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.radio-inline,
+.checkbox,
+.checkbox-inline {
+  min-height: 34px;
+  margin-right: 10px;
+  color: #111827;
+  font-size: 14px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  accent-color: #2563eb;
+}
+
+.js-irs-0,
+.irs {
+  margin-top: -4px;
+}
+
+.irs--shiny .irs-bar,
+.irs--shiny .irs-single {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.irs--shiny .irs-handle {
+  width: 24px;
+  height: 24px;
+  top: 20px;
+  border-color: #2563eb;
+}
+
+.opacity-row {
+  padding-top: 4px;
+}
+
+.sheet-message {
+  min-height: 18px;
+  color: #475569;
+  font-size: 13px;
+}
+
+.vector-group .checkbox {
+  margin-top: 10px;
+}
+
+.popup-table {
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.popup-table th {
+  padding: 2px 8px 2px 0;
+  color: #475569;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.popup-table td {
+  padding: 2px 0;
+  color: #111827;
+}
+
+@media (min-width: 720px) {
+  .bottom-sheet {
+    left: 50%;
+    width: min(680px, calc(100% - 32px));
+    transform: translateX(-50%);
+  }
+
+  .bottom-sheet.collapsed {
+    transform: translateX(-50%) translateY(calc(100% - 48px));
+  }
+}

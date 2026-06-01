@@ -1,0 +1,363 @@
+layers:
+  - id: frost_combined_2050_weighted
+    title: Gewichtetes Frostrisiko 2050
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_cmip6_weighted_2050.tif
+    default_visible: true
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2050
+    cmip6_mode: weighted
+    stage: combined
+
+  - id: frost_historic_2010
+    title: Historisches Frostrisiko 2010
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_historic_2010.tif
+    default_visible: false
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2010
+    cmip6_mode: historic
+    stage: combined
+
+  - id: frost_combined_2085_weighted
+    title: Gewichtetes Frostrisiko 2085
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_cmip6_weighted_2085.tif
+    default_visible: false
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2085
+    cmip6_mode: weighted
+    stage: combined
+
+  - id: frost_combined_2050_ssp126
+    title: SSP126-Frostrisiko 2050
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_ssp126_2050.tif
+    default_visible: false
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2050
+    cmip6_mode: ssp126
+    stage: combined
+
+  - id: frost_combined_2085_ssp126
+    title: SSP126-Frostrisiko 2085
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_ssp126_2085.tif
+    default_visible: false
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2085
+    cmip6_mode: ssp126
+    stage: combined
+
+  - id: frost_combined_2050_ssp245
+    title: SSP245-Frostrisiko 2050
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_ssp245_2050.tif
+    default_visible: false
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2050
+    cmip6_mode: ssp245
+    stage: combined
+
+  - id: frost_combined_2085_ssp245
+    title: SSP245-Frostrisiko 2085
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_ssp245_2085.tif
+    default_visible: false
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2085
+    cmip6_mode: ssp245
+    stage: combined
+
+  - id: frost_combined_2050_ssp370
+    title: SSP370-Frostrisiko 2050
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_ssp370_2050.tif
+    default_visible: false
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2050
+    cmip6_mode: ssp370
+    stage: combined
+
+  - id: frost_combined_2085_ssp370
+    title: SSP370-Frostrisiko 2085
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_ssp370_2085.tif
+    default_visible: false
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2085
+    cmip6_mode: ssp370
+    stage: combined
+
+  - id: terrain_elevation
+    title: Höhe
+    group: Gelände
+    type: raster_tif
+    path: data/layers/terrain/terrain_elevation.tif
+    default_visible: false
+    opacity: 0.65
+    palette: terrain
+    legend_title: Höhe
+    legend_min: 0
+    legend_max: 800
+    unit: m
+    role: overlay
+
+  - id: terrain_slope
+    title: Hangneigung
+    group: Gelände
+    type: raster_tif
+    path: data/layers/terrain/terrain_slope.tif
+    default_visible: false
+    opacity: 0.65
+    palette: terrain
+    legend_title: Hangneigung
+    legend_min: 0
+    legend_max: 25
+    unit: Grad
+    role: overlay
+
+  - id: terrain_roughness
+    title: Rauigkeit
+    group: Gelände
+    type: raster_tif
+    path: data/layers/terrain/terrain_roughness.tif
+    default_visible: false
+    opacity: 0.65
+    palette: terrain
+    legend_title: Rauigkeit
+    legend_min: 0
+    legend_max: 80
+    unit: m
+    role: overlay
+
+  - id: terrain_tpi
+    title: Topografische Position
+    group: Gelände
+    type: raster_tif
+    path: data/layers/terrain/terrain_tpi.tif
+    default_visible: false
+    opacity: 0.65
+    palette: terrain
+    legend_title: TPI
+    legend_min: -60
+    legend_max: 60
+    unit: m
+    role: overlay
+
+  - id: terrain_eastness
+    title: Ostexposition
+    group: Gelände
+    type: raster_tif
+    path: data/layers/terrain/terrain_eastness.tif
+    default_visible: false
+    opacity: 0.65
+    palette: terrain
+    legend_title: Ostexposition
+    legend_min: -1
+    legend_max: 1
+    unit: ""
+    role: overlay
+
+  - id: terrain_northness
+    title: Nordexposition
+    group: Gelände
+    type: raster_tif
+    path: data/layers/terrain/terrain_northness.tif
+    default_visible: false
+    opacity: 0.65
+    palette: terrain
+    legend_title: Nordexposition
+    legend_min: -1
+    legend_max: 1
+    unit: ""
+    role: overlay
+
+  - id: climate_first_5daywarm_doy_q10
+    title: Erster 5-Tage-Wärmezeitraum q10
+    group: Klimaprädiktoren
+    type: raster_tif
+    path: data/layers/climate_predictors/first_5daywarm_doy_q10.tif
+    default_visible: false
+    opacity: 0.65
+    palette: viridis
+    legend_title: Erster 5-Tage-Wärmezeitraum q10
+    legend_min: 80
+    legend_max: 110
+    unit: Tag im Jahr
+    role: overlay
+
+  - id: climate_frost_days_mar_may_q90
+    title: Frosttage März-Mai q90
+    group: Klimaprädiktoren
+    type: raster_tif
+    path: data/layers/climate_predictors/frost_days_mar_may_q90.tif
+    default_visible: false
+    opacity: 0.65
+    palette: viridis
+    legend_title: Frosttage März-Mai q90
+    legend_min: 8
+    legend_max: 36
+    unit: Tage
+    role: overlay
+
+  - id: climate_gdd_forcing_mean
+    title: Mittlere Wärmesumme (GDD)
+    group: Klimaprädiktoren
+    type: raster_tif
+    path: data/layers/climate_predictors/gdd_forcing_mean.tif
+    default_visible: false
+    opacity: 0.65
+    palette: viridis
+    legend_title: Mittlere Wärmesumme (GDD)
+    legend_min: 235
+    legend_max: 780
+    unit: GDD
+    role: overlay
+
+  - id: climate_last_frost_doy_q90
+    title: Letzter Frosttag q90
+    group: Klimaprädiktoren
+    type: raster_tif
+    path: data/layers/climate_predictors/last_frost_doy_q90.tif
+    default_visible: false
+    opacity: 0.65
+    palette: viridis
+    legend_title: Letzter Frosttag q90
+    legend_min: 90
+    legend_max: 138
+    unit: Tag im Jahr
+    role: overlay
+
+  - id: misc_population_density
+    title: Bevölkerungsdichte
+    group: Sonstiges
+    type: raster_tif
+    path: data/layers/misc/einwohner_density_nrw.tif
+    default_visible: false
+    opacity: 0.55
+    palette: population
+    legend_title: Bevölkerungsdichte
+    legend_min: 1000
+    legend_max: 6500
+    unit: Einw./km²
+    role: overlay
+
+  - id: misc_municipalities
+    title: Gemeinden
+    group: Sonstiges
+    type: vector
+    path: data/layers/misc/misc_municipalities.gpkg
+    default_visible: false
+    opacity: 0.45
+    palette: outline
+    legend_title: Gemeinden
+    legend_min: 0
+    legend_max: 1
+    unit: ""
+    role: context
+
+  - id: misc_landschaftsraeume
+    title: Landschaftsräume
+    group: Sonstiges
+    type: vector
+    path: data/layers/misc/misc_landschaftsraeume.gpkg
+    default_visible: false
+    opacity: 0.45
+    palette: outline
+    legend_title: Landschaftsräume
+    legend_min: 0
+    legend_max: 1
+    unit: ""
+    role: context
+
+  - id: support_points
+    title: Stützpunkte
+    group: Punkte / Grenzen
+    type: vector
+    path: data/vectors/support_points.gpkg
+    default_visible: true
+    opacity: 1
+    palette: support_points
+    legend_title: Stützpunkte
+    legend_min: 0
+    legend_max: 1
+    unit: ""
+    role: support_points
+
+  - id: nrw_boundary
+    title: NRW-Grenze
+    group: Punkte / Grenzen
+    type: vector
+    path: data/vectors/nrw_boundary.gpkg
+    default_visible: true
+    opacity: 1
+    palette: outline
+    legend_title: NRW-Grenze
+    legend_min: 0
+    legend_max: 1
+    unit: ""
+    role: boundary
