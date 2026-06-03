@@ -35,19 +35,13 @@ server <- function(input, output, session) {
   }
 
   boundary_layer <- find_layer(registry, "nrw_boundary")
-  support_layer <- find_layer(registry, "support_points")
   boundary <- get_vector(boundary_layer)
-  support_points <- get_vector(support_layer)
-  boundary_bbox <- get_nrw_bbox(boundary)
 
   output$map <- leaflet::renderLeaflet({
     map <- create_leaflet_map(boundary)
 
     if (!is.null(boundary) && isTRUE(boundary_layer$default_visible)) {
       map <- add_nrw_boundary(map, boundary)
-    }
-    if (!is.null(support_points) && isTRUE(support_layer$default_visible)) {
-      map <- add_support_points(map, support_points)
     }
 
     map
@@ -188,14 +182,6 @@ server <- function(input, output, session) {
       add_layer_legend(proxy, layer, layer_id = paste0("legend_", layer$id), position = "bottomleft", raster_cache = raster_cache)
     }, ignoreInit = TRUE)
   })
-
-  observeEvent(input$show_support_points, {
-    proxy <- leafletProxy("map")
-    proxy <- leaflet::clearGroup(proxy, "support_points")
-    if (isTRUE(input$show_support_points) && !is.null(support_points)) {
-      add_support_points(proxy, support_points)
-    }
-  }, ignoreInit = TRUE)
 
   observeEvent(input$show_nrw_boundary, {
     proxy <- leafletProxy("map")

@@ -43,7 +43,6 @@ data/
     cmip6/
     misc/
   vectors/
-    support_points.gpkg
     nrw_boundary.gpkg
 www/
   app-icon.png

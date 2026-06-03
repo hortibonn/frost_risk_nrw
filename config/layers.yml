@@ -334,20 +334,6 @@ layers:
     unit: ""
     role: context
 
-  - id: support_points
-    title: Stützpunkte
-    group: Punkte / Grenzen
-    type: vector
-    path: data/vectors/support_points.gpkg
-    default_visible: true
-    opacity: 1
-    palette: support_points
-    legend_title: Stützpunkte
-    legend_min: 0
-    legend_max: 1
-    unit: ""
-    role: support_points
-
   - id: nrw_boundary
     title: NRW-Grenze
     group: Punkte / Grenzen

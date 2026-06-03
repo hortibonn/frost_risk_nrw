@@ -100,15 +100,11 @@ build_overlay_controls <- function(registry, group, input_id) {
 }
 
 build_vector_controls <- function(registry) {
-  support <- find_layer(registry, "support_points")
   boundary <- find_layer(registry, "nrw_boundary")
 
   div(
     class = "control-group vector-group",
     div(class = "group-label", "Punkte und Grenzen"),
-    if (!is.null(support) && isTRUE(support$available)) {
-      checkboxInput("show_support_points", support$title, value = isTRUE(support$default_visible))
-    },
     if (!is.null(boundary) && isTRUE(boundary$available)) {
       checkboxInput("show_nrw_boundary", boundary$title, value = isTRUE(boundary$default_visible))
     }
