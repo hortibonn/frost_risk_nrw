@@ -242,6 +242,25 @@ input[type="checkbox"] {
   margin-top: 10px;
 }
 
+.layer-choice {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  vertical-align: top;
+}
+
+.layer-source {
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.layer-source:hover {
+  color: #334155;
+  text-decoration: underline;
+}
+
 .popup-table {
   border-collapse: collapse;
   font-size: 12px;

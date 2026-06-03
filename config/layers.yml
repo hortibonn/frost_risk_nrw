@@ -306,6 +306,22 @@ layers:
     unit: Einw./km²
     role: overlay
 
+  - id: misc_orchard_cells
+    title: Obstbauzellen
+    group: Sonstiges
+    type: raster_tif
+    path: data/layers/misc/NRW_cells_value_4003_100m.tif
+    default_visible: false
+    opacity: 0.45
+    palette: orchard
+    legend_title: Obstbauzellen
+    legend_min: 0
+    legend_max: 1
+    unit: ""
+    role: overlay
+    source_label: "Quelle: Thünen-Institut, Landwirtschaftliche Flächennutzung 2021"
+    source_url: "https://doi.org/10.5281/zenodo.10640528"
+
   - id: misc_municipalities
     title: Gemeinden
     group: Sonstiges

@@ -64,6 +64,14 @@ create_leaflet_map <- function(boundary = NULL) {
 }
 
 layer_palette <- function(layer, raster = NULL) {
+  if (identical(layer$palette, "orchard")) {
+    return(function(values) {
+      colors <- rep("transparent", length(values))
+      colors[!is.na(values) & values > 0] <- "#2f855a"
+      colors
+    })
+  }
+
   limits <- layer_limits(layer, raster)
   min_value <- limits[[1]]
   max_value <- limits[[2]]
@@ -78,6 +86,7 @@ layer_palette <- function(layer, raster = NULL) {
     cold = c("#f7fbff", "#deebf7", "#9ecae1", "#3182bd", "#08519c"),
     warm = c("#ffffcc", "#fed976", "#fd8d3c", "#e31a1c", "#800026"),
     population = c("#fff7bc", "#fee391", "#fec44f", "#ec7014", "#7f0000"),
+    orchard = c("#2f855a", "#2f855a"),
     c("#f7fbff", "#9ecae1", "#08519c")
   )
 
@@ -205,6 +214,20 @@ add_raster_tif <- function(map, layer, raster, opacity, group = layer$id) {
 add_layer_legend <- function(map, layer, layer_id = paste0("legend_", layer$id), position = "bottomright", raster_cache = NULL) {
   if (!layer$type %in% c("raster_tif", "raster_tiles")) {
     return(map)
+  }
+
+  if (identical(layer$palette, "orchard")) {
+    return(
+      leaflet::addLegend(
+        map,
+        position = position,
+        colors = "#2f855a",
+        labels = "Vorkommen",
+        title = htmltools::htmlEscape(layer$legend_title),
+        opacity = 0.75,
+        layerId = layer_id
+      )
+    )
   }
 
   raster <- NULL

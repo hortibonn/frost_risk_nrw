@@ -74,12 +74,13 @@ build_overlay_controls <- function(registry, group, input_id) {
     return(NULL)
   }
 
-  choices <- stats::setNames(vapply(layers, `[[`, character(1), "id"), vapply(layers, `[[`, character(1), "title"))
+  choice_values <- vapply(layers, `[[`, character(1), "id")
+  choice_names <- lapply(layers, layer_choice_label)
 
   tags$details(
     class = "control-group",
     tags$summary(group),
-    checkboxGroupInput(input_id, NULL, choices = choices, selected = character(0)),
+    checkboxGroupInput(input_id, NULL, choiceNames = choice_names, choiceValues = choice_values, selected = character(0)),
     lapply(layers, function(layer) {
       conditionalPanel(
         condition = sprintf("input['%s'] && input['%s'].indexOf('%s') !== -1", input_id, input_id, layer$id),
@@ -96,6 +97,24 @@ build_overlay_controls <- function(registry, group, input_id) {
         )
       )
     })
+  )
+}
+
+layer_choice_label <- function(layer) {
+  if (is.null(layer$source_label) || !nzchar(layer$source_label)) {
+    return(layer$title)
+  }
+
+  tags$span(
+    class = "layer-choice",
+    tags$span(class = "layer-choice-title", layer$title),
+    tags$a(
+      class = "layer-source",
+      href = layer$source_url %||% "#",
+      target = "_blank",
+      rel = "noopener noreferrer",
+      layer$source_label
+    )
   )
 }
 
