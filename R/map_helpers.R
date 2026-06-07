@@ -241,16 +241,11 @@ add_layer_legend <- function(map, layer, layer_id = paste0("legend_", layer$id),
 
   pal <- layer_palette(layer, raster)
   limits <- layer_limits(layer, raster)
-  unit <- layer$unit %||% ""
   lab_format <- function(type, cuts, p) {
-    labels <- format(signif(cuts, 3), trim = TRUE)
-    if (nzchar(unit)) {
-      labels <- paste0(labels, " ", unit)
-    }
-    labels
+    format_layer_legend_labels(layer, cuts, limits)
   }
 
-  leaflet::addLegend(
+  map <- leaflet::addLegend(
     map,
     position = position,
     pal = pal,
@@ -260,6 +255,87 @@ add_layer_legend <- function(map, layer, layer_id = paste0("legend_", layer$id),
     layerId = layer_id,
     labFormat = lab_format
   )
+
+  reverse_latest_legend(map)
+}
+
+format_layer_legend_labels <- function(layer, cuts, limits = NULL) {
+  if (is_frost_risk_layer(layer)) {
+    values <- cuts
+    if (legend_values_are_probability_scale(limits %||% cuts)) {
+      values <- values * 100
+    }
+    return(paste0(format(signif(values, 3), trim = TRUE), "%"))
+  }
+
+  unit <- layer$unit %||% ""
+  labels <- format(signif(cuts, 3), trim = TRUE)
+  if (nzchar(unit)) {
+    labels <- paste0(labels, " ", unit)
+  }
+  labels
+}
+
+legend_values_are_probability_scale <- function(values) {
+  values <- suppressWarnings(as.numeric(values))
+  values <- values[is.finite(values)]
+  length(values) > 0 && max(abs(values)) <= 1
+}
+
+reverse_latest_legend <- function(map) {
+  call_index <- length(map$x$calls)
+  if (call_index == 0) {
+    return(map)
+  }
+
+  legend_call <- map$x$calls[[call_index]]
+  if (!identical(legend_call$method, "addLegend") || length(legend_call$args) == 0) {
+    return(map)
+  }
+
+  legend_args <- legend_call$args[[1]]
+  if (!is.null(legend_args$labels)) {
+    legend_args$labels <- rev(legend_args$labels)
+  }
+  if (!is.null(legend_args$colors)) {
+    legend_args$colors <- reverse_legend_colors(legend_args$colors)
+  }
+
+  legend_call$args[[1]] <- legend_args
+  map$x$calls[[call_index]] <- legend_call
+  map
+}
+
+reverse_legend_colors <- function(colors) {
+  color_class <- class(colors)
+  reversed <- if (length(colors) == 1 && grepl(",", colors[[1]], fixed = TRUE)) {
+    reverse_gradient_stops(colors[[1]])
+  } else {
+    rev(colors)
+  }
+
+  if (length(color_class) > 0) {
+    class(reversed) <- color_class
+  }
+  reversed
+}
+
+reverse_gradient_stops <- function(gradient) {
+  stops <- trimws(strsplit(gradient, ",", fixed = TRUE)[[1]])
+  stops <- rev(stops)
+  stops <- vapply(stops, reverse_gradient_stop_position, character(1))
+  paste(stops, collapse = ", ")
+}
+
+reverse_gradient_stop_position <- function(stop) {
+  match <- regexec("^(.*?)([0-9]+(?:\\.[0-9]+)?)%\\s*$", stop)
+  parts <- regmatches(stop, match)[[1]]
+  if (length(parts) == 0) {
+    return(stop)
+  }
+
+  position <- 100 - as.numeric(parts[[3]])
+  paste0(trimws(parts[[2]]), " ", format(signif(position, 6), trim = TRUE), "%")
 }
 
 add_nrw_boundary <- function(map, boundary, group = "nrw_boundary") {

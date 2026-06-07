@@ -106,7 +106,7 @@ layer_choice_label <- function(layer) {
   }
 
   tags$span(
-    class = "layer-choice",
+    class = "layer-choice layer-choice-with-source",
     tags$span(class = "layer-choice-title", layer$title),
     tags$a(
       class = "layer-source",

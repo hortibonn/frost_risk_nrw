@@ -82,7 +82,7 @@ year: 2050
 cmip6_mode: weighted
 ```
 
-Current `cmip6_mode` values used by the app are `weighted`, `ssp126`, `ssp245`, and `ssp370`. Stage-specific frost-risk controls are not exposed in the app for now.
+Current `cmip6_mode` values used by the app are `weighted`, `ssp126`, `ssp245`, `ssp370`, and `ssp585`. Stage-specific frost-risk controls are not exposed in the app for now.
 
 The historic 2010 frost-risk layer is shown as a standalone year with no CMIP6 selector. Frost-risk layers use the Viridis Inferno palette and are display-capped by `FROST_RISK_DISPLAY_MAX` in `R/map_helpers.R`; set that value in probability units, for example `0.21` for 21%.
 

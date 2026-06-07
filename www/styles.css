@@ -249,7 +249,37 @@ input[type="checkbox"] {
   vertical-align: top;
 }
 
+.checkbox label:has(.layer-choice-with-source) {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  column-gap: 6px;
+  align-items: start;
+}
+
+.checkbox label:has(.layer-choice-with-source) input[type="checkbox"] {
+  grid-column: 1;
+  margin-top: 1px;
+  margin-right: 0;
+}
+
+.checkbox label:has(.layer-choice-with-source) > span {
+  grid-column: 2;
+  display: block;
+  min-width: 0;
+}
+
+.checkbox label:has(.layer-choice-with-source) .layer-choice {
+  display: block;
+}
+
+.layer-choice-title {
+  display: block;
+  line-height: 1.3;
+}
+
 .layer-source {
+  display: block;
+  margin-top: 2px;
   color: #64748b;
   font-size: 11px;
   line-height: 1.25;
