@@ -152,6 +152,41 @@ layers:
     cmip6_mode: ssp370
     stage: combined
 
+  - id: frost_combined_2050_ssp585
+    title: SSP585-Frostrisiko 2050
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_ssp585_2050.tif
+    default_visible: false
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2050
+    cmip6_mode: ssp585
+    stage: combined
+
+  - id: frost_combined_2085_ssp585
+    title: SSP585-Frostrisiko 2085
+    group: Frostrisiko
+    type: raster_tif
+    path: data/layers/frost_risk/frost_damage_risk_gam_Golden_Delicious_ssp585_2085.tif
+    default_visible: false
+    opacity: 0.82
+    palette: frost_risk
+    legend_title: Frostrisiko
+    legend_min:
+    legend_max:
+    unit: ""
+    role: main_frost_risk
+    year: 2085
+    cmip6_mode: ssp585
+    stage: combined
+
+
   - id: terrain_elevation
     title: Höhe
     group: Gelände
